@@ -4,6 +4,7 @@ This is a demo demonstrating how a project can be setup to enable React.js devel
 * Clone
 * Open in Visual Studio Code
 * `npm install`
+* `nvm install -g webpack`
 * `npm run build` - this compiles the Typescript do the **dist** folder and puts a watch on it to perform automatic recompile on changes.
 * `npm run start` - this starts the **webpack-dev-server** to serve the webpage in a normal browser tab.
 * Close the tab
