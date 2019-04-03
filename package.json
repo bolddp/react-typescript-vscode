@@ -4,8 +4,12 @@
   "description": "React Typescript test",
   "main": "index.js",
   "scripts": {
+    "test": "_mocha",
     "build": "webpack --mode development --watch",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "coverage": "nyc _mocha",
+    "prod-dev": "webpack --mode production --config webpack.config.prod.js --env.ENV_TYPE=dev",
+    "prod-live": "webpack --mode production --config webpack.config.prod.js --env.ENV_TYPE=live"
   },
   "author": "Daniel Persson",
   "license": "MIT",
@@ -17,7 +21,13 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "5.2.1",
+    "clean-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.0.2",
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "sass-loader": "^7.1.0",
     "source-map-loader": "0.2.4",
+    "style-loader": "^0.23.1",
     "typescript": "3.2.2",
     "url-loader": "^1.1.2",
     "webpack": "4.28.3",

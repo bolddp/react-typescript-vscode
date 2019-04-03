@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Textbox } from './Textbox';
 import { User } from '../domain/User';
-import * as se_flag from '../../assets/images/se.png';
+import * as se_flag from '../../public/images/se.png';
 
 export interface UserFormProps { user: User; onSave: (user: User) => void }
 export interface UserFormState { email: string; firstName: string, lastName: string }
