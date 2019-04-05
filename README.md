@@ -1,7 +1,7 @@
 # react-typescript-vscode
-This is a demo project for a setup with React.js development in Typescript with Visual Studio Code as the IDE. Webpack is used to host the web page during development and package an optimized production build.
+This is a demo project for a setup with React.js development in Typescript with Visual Studio Code as the IDE. Webpack is used to host the web page during development, and also include scripts to package an optimized production build.
 
-It supports debugging and setting breakpoints in VS Code, as well as production deployment through an optimized webpack configurtion.
+It supports debugging and setting breakpoints in VS Code.
 
 The project is also setup with Bootstrap, including SASS styling.
 

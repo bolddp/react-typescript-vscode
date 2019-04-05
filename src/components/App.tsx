@@ -1,4 +1,4 @@
-/// <reference path='./index.d.ts'/>
+/// <reference path='../index.d.ts'/>
 import * as React from "react";
 import { User } from '../domain/User';
 import { UserForm } from "./UserForm";
