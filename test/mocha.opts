@@ -1,5 +1,6 @@
 -r ts-node/register
 -r source-map-support/register
+-r ./test/mocha_cfg.js
 --timeout 999999
 --colors
 test/**/*Test.tsx
