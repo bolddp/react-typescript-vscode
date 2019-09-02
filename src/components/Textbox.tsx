@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-export interface TextboxProps { text: string, placeholder?: string, onChange: ((text: string) => void) }
+export interface TextboxProps {
+  text: string,
+  placeholder?: string,
+  onChange: ((text: string) => void)
+}
 
 export class Textbox extends React.Component<TextboxProps, {}> {
   render() {
