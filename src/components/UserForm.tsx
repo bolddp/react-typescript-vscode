@@ -1,46 +1,30 @@
 import * as React from 'react';
-import { Textbox } from './Textbox';
+import { Textbox, useTextbox, usePasswordTextbox } from './Textbox';
 import { User } from '../domain/User';
 import * as se_flag from '../../public/images/se.png';
 
 export interface UserFormProps { user: User; onSave: (user: User) => void }
-export interface UserFormState { email: string; firstName: string, lastName: string }
 
-export class UserForm extends React.Component<UserFormProps, UserFormState> {
-  constructor(props: UserFormProps) {
-    super(props);
-    this.state = {
-      email: props.user.email,
-      firstName: props.user.firstName,
-      lastName: props.user.lastName
-    }
-  }
+export const UserForm: React.FC<UserFormProps> = (props) => {
+  const email = useTextbox(props.user.email);
+  const firstName = useTextbox(props.user.firstName);
+  const lastName = useTextbox(props.user.lastName);
+  const password = usePasswordTextbox(props.user.password);
 
-  emailChanged(text: string) { this.setState({ ...this.state, email: text}); }
-
-  firstNameChanged(text: string) { this.setState({ ...this.state, firstName: text}); }
-
-  lastNameChanged(text: string) { this.setState({ ...this.state, lastName: text}); }
-
-  btnClick() {
-    const user = {
-      email: this.state.email,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName
-    } as User;
-    this.props.onSave(user);
-  }
-
-  render() {
-    return (
-      <div>
-        <span>Look, a static asset was successfully imported --> </span><img src={se_flag} />
-        <br /> <br />
-        <Textbox text={this.state.email} placeholder="email" onChange={text => this.emailChanged(text)} />
-        <Textbox text={this.state.firstName} placeholder="first name" onChange={text => this.firstNameChanged(text)} />
-        <Textbox text={this.state.lastName} placeholder="last name" onChange={text => this.lastNameChanged(text)} />
-        <button onClick={this.btnClick.bind(this)}>Save user</button>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <span>Look, a static asset was successfully imported --> </span><img src={se_flag} />
+      <br /> <br />
+      <Textbox placeholder="email" {...email} />
+      <Textbox placeholder="first name" {...firstName} />
+      <Textbox placeholder="last name" {...lastName} />
+      <Textbox {...password} />
+      <button onClick={() => props.onSave({
+        email: email.value,
+        firstName: firstName.value,
+        lastName: lastName.value,
+        password: password.value
+      })}>Save user</button>
+    </div>
+  )
 }
